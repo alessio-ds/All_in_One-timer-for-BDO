@@ -6,12 +6,15 @@ It's still a work-in-progress but it works great.
 
 # How to install:
 
-**Python**:
+### **Python**:
+You will need to install the [requests](https://pypi.org/project/requests/ "requests") library, by typing in your console:
 
 `pip install requests`
 
 
 
-**Windows**:
-Download the latest build [here](https://github.com/AlessioScarlet/All_in_One-timer-for-BDO/raw/main/AIO-Timer.exe)
---It will take some time to load (about 5 seconds).--
+### **Windows**:
+**Download the latest build [here](https://github.com/AlessioScarlet/All_in_One-timer-for-BDO/raw/main/AIO-Timer.exe)**
+
+I compiled it with [pyautogui](https://pyautogui.readthedocs.io/en/latest/ "pyautogui").
+It will take some time to load (about 5 seconds).
