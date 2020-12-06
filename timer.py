@@ -70,7 +70,7 @@ def gather(server):
                 else:
                     break
 
-        nomeboss = trovabosstxt[posboss:posboss + 6]  # O PIù 7?
+        nomeboss = trovabosstxt[posboss:posboss + 7]  
         nomeboss = nomeboss.replace('<', '')
         nomeboss = nomeboss.replace('/', '')
 
