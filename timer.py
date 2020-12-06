@@ -38,18 +38,9 @@ def gather(server):
     testopagina = sito.text
 
     nomiboss = 'Nouver', 'Karanda', 'Kzarka', 'Offin', 'Vell', 'Garmoth', 'Quint', 'Muraka', 'Kutum'
-    # vanno aggiunti karandakutum, kutumkzarka, quintmuraka, karandakzarka, kutumoffin, nouverkutum + fixxare il codice sotto
-    posimperial = testopagina.find('Imperial reset in:')
-    imperial = testopagina[posimperial + 44:posimperial + 52]
-    #imperial = list(imperial)
 
     postrading = testopagina.find('Imperial trading reset in:')
     trading = testopagina[postrading + 52:postrading + 60]
-    #trading = list(imperial)
-
-    posbartering = testopagina.find('Bartering reset in:')
-    bartering = testopagina[posbartering + 45:posbartering + 53]
-    #bartering = list(bartering)
 
     prossimo = testopagina.find('Next boss')
     seguitoda = testopagina.find('Followed by')
@@ -70,7 +61,7 @@ def gather(server):
                 else:
                     break
 
-        nomeboss = trovabosstxt[posboss:posboss + 7]  
+        nomeboss = trovabosstxt[posboss:posboss + 7]
         nomeboss = nomeboss.replace('<', '')
         nomeboss = nomeboss.replace('/', '')
 
@@ -122,9 +113,9 @@ def gather(server):
     sb = int(str((tboss[6]) + (tboss[7])))
 
 
-    hi = int(imperial[1])
-    mi = int(str((imperial[3]) + (imperial[4])))
-    si = int(str((imperial[6]) + (imperial[7])))
+    hi = hb
+    mi = mb
+    si = sb
 
 
     ht = int(trading[1])
@@ -132,9 +123,9 @@ def gather(server):
     st = int(str((trading[6]) + (trading[7])))
 
 
-    hba = int(bartering[1])
-    mba = int(str((bartering[3]) + (bartering[4])))
-    sba = int(str((bartering[6]) + (bartering[7])))
+    hba = ht
+    mba = mt
+    sba = st
 
 
     dnpos = testopagina.find('Night in:')  #dnpos = day night position
