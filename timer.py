@@ -134,7 +134,6 @@ def gather(server):
         ho = int(orario[1])
         mo = int(str((orario[3]) + (orario[4])))
         so = int(str((orario[6]) + (orario[7])))
-        #orario=list(orario)
         gn='Night in: '
         countdown(hb,mb,sb, ho,mo,so, hi,mi,si, ht,mt,st, hba,mba,sba, gn, nomeboss, nomeboss2, server)
         gather()
@@ -145,7 +144,6 @@ def gather(server):
         ho = int(orario[1])
         mo = int(str((orario[3]) + (orario[4])))
         so = int(str((orario[6]) + (orario[7])))
-        #orario=list(orario)
         gn='Day in: '
         countdown(hb,mb,sb, ho,mo,so, hi,mi,si, ht,mt,st, hba,mba,sba, gn, nomeboss, nomeboss2, server)
         gather()
