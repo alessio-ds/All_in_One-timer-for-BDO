@@ -1,7 +1,7 @@
 # All in One timer for Black Desert Online
 A lightweight (6kb~), console-based, reliable, opensource, all in one timer for Black Desert Online all written in Python.
 
-![](https://i.imgur.com/kiJURi7.png)
+![](https://i.imgur.com/FQJNMDr.png)
 
 It collects data from mmotimer.com, and then computes the countdown on its own.
 It will save your server preferences, but if you wish to change the server to look for just delete the `preferred_server.txt` file.
