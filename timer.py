@@ -1,7 +1,8 @@
 import time
 import requests
 import os
-
+import sys
+sys.stdout.write("\x1b[8;{rows};{cols}t".format(rows=6, cols=41))
 def clr():
     if os.name == 'nt':
         os.system('cls')
@@ -167,11 +168,11 @@ def countdown(hb,mb,sb, ho,mo,so, hi,mi,si, ht,mt,st, hba,mba,sba, gn, nomeboss,
     baseconds = hmsToSecs(hba, mba, sba)
     while bseconds > 0 and oseconds > 0 and iseconds > 0 and tseconds > 0 and baseconds >0 and autoreset > 0:
         clr()
-        print("Next boss: ",nomeboss,nomeboss2,("%02d:%02d:%02d"%secsToHms(bseconds)))
-        print(gn,("%02d:%02d:%02d" % secsToHms(oseconds)))
-        print("Imperial reset in: ",("%02d:%02d:%02d" % secsToHms(iseconds)))
-        print("Imperial trading reset in: ",("%02d:%02d:%02d" % secsToHms(baseconds)))
-        print("Bartering reset in: ",("%02d:%02d:%02d" % secsToHms(baseconds)))
+        print("Next boss: ",nomeboss,nomeboss2,'\t',("%02d:%02d:%02d"%secsToHms(bseconds)))
+        print(gn,'\t\t\t',("%02d:%02d:%02d" % secsToHms(oseconds)))
+        print("Imperial reset in: \t\t",("%02d:%02d:%02d" % secsToHms(iseconds)))
+        print("Imperial trading reset in: \t",("%02d:%02d:%02d" % secsToHms(baseconds)))
+        print("Bartering reset in: \t\t",("%02d:%02d:%02d" % secsToHms(baseconds)))
 
         bseconds -= 1
         oseconds -= 1
