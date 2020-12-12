@@ -22,3 +22,11 @@ You will need to install the [requests](https://pypi.org/project/requests/ "requ
 I compiled it with [autopytoexe](https://pypi.org/project/auto-py-to-exe/).
 It will take some time to load (about 5 seconds).
 
+**Warning!**
+
+![](https://i.imgur.com/JBWicq5.png)
+*(thanks to Draconis from the Kakao Games Discord server.)*
+
+When you download the .exe, your browser might detect it as a virus. It usually happens with programs that have got too few downloads.
+The [VirusTotal Scan](https://www.virustotal.com/gui/file/2c3bdc41b30eefce8abb6f27264f18c3731686317f1dc2c9d7a91e1736bd0048/detection) shows that it's not harmful, at best it gets detected as a "Heuristic threat".
+In any case, remember that you can always use the Python file, as it is opensource and you can just look at it.
