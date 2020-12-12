@@ -25,6 +25,7 @@ It will take some time to load (about 5 seconds).
 **Warning!**
 
 ![](https://i.imgur.com/JBWicq5.png)
+
 *(thanks to Draconis from the Kakao Games Discord server.)*
 
 When you download the .exe, your browser might detect it as a virus. It usually happens with programs that have got too few downloads.
