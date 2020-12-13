@@ -65,7 +65,8 @@ def gather(server):
         nomeboss = trovabosstxt[posboss:posboss + 7]
         nomeboss = nomeboss.replace('<', '')
         nomeboss = nomeboss.replace('/', '')
-
+        if nomeboss[:5] == 'Kutum':
+            nomeboss = 'Kutum'
         postboss = trovabosstxt.find('timer countdown">')
         tboss = trovabosstxt[postboss + 39:postboss + 47]
         tboss = list(tboss)
@@ -83,8 +84,7 @@ def gather(server):
         nomeboss = nomeboss.replace('<', '')
         nomeboss = nomeboss.replace('/', '')
         if nomeboss[:5] == 'Kutum':
-            nomeboss = nomeboss.replace('b', '')
-        nomeboss = nomeboss.replace(' ', '')
+            nomeboss = 'Kutum'
 
         postboss = trovabosstxt.find('timer countdown">')
         tboss = trovabosstxt[postboss + 39:postboss + 47]
@@ -103,8 +103,7 @@ def gather(server):
         nomeboss2 = nomeboss2.replace('<', '')
         nomeboss2 = nomeboss2.replace('/', '')
         if nomeboss2[:5] == 'Kutum':
-            nomeboss2 = nomeboss2.replace('b', '')
-        nomeboss2 = nomeboss2.replace(' ', '')
+            nomeboss2 = 'Kutum'
 
 
 
