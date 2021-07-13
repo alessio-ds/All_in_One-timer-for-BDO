@@ -17,7 +17,7 @@ You will need to install the [requests](https://pypi.org/project/requests/ "requ
 
 
 ### **Windows**:
-**Download the latest build [here](https://github.com/AlessioScarlet/All_in_One-timer-for-BDO/raw/main/AIO-Timer.exe)**
+**Download the latest build [here](https://github.com/alessio-ds/All_in_One-timer-for-BDO/raw/main/AIO-Timer.exe)**
 
 I compiled it with [autopytoexe](https://pypi.org/project/auto-py-to-exe/).
 It will take some time to load (about 5 seconds).
