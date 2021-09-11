@@ -105,28 +105,13 @@ def gather(server):
         if nomeboss2[:5] == 'Kutum':
             nomeboss2 = 'Kutum'
 
+    hi = hb = int(tboss[1])
+    mi = mb = int(str((tboss[3]) + (tboss[4])))
+    si = sb = int(str((tboss[6]) + (tboss[7])))
 
-
-
-    hb = int(tboss[1])
-    mb = int(str((tboss[3]) + (tboss[4])))
-    sb = int(str((tboss[6]) + (tboss[7])))
-
-
-    hi = hb
-    mi = mb
-    si = sb
-
-
-    ht = int(trading[1])
-    mt = int(str((trading[3]) + (trading[4])))
-    st = int(str((trading[6]) + (trading[7])))
-
-
-    hba = ht
-    mba = mt
-    sba = st
-
+    hba = ht = int(trading[1])
+    mba = mt = int(str((trading[3]) + (trading[4])))
+    sba = st = int(str((trading[6]) + (trading[7])))
 
     dnpos = testopagina.find('Night in:')  #dnpos = day night position
     if dnpos!=-1:
@@ -180,12 +165,8 @@ def countdown(hb,mb,sb, ho,mo,so, hi,mi,si, ht,mt,st, hba,mba,sba, gn, nomeboss,
         print("Imperial trading reset in: \t",("%02d:%02d:%02d" % secsToHms(baseconds)))
         print("Bartering reset in: \t\t",("%02d:%02d:%02d" % secsToHms(baseconds)))
 
-        bseconds -= 1
-        oseconds -= 1
-        iseconds -= 1
-        tseconds -= 1
-        baseconds -= 1
-        autoreset-=1
+        bseconds, oseconds, iseconds, tseconds, baseconds, autoreset = bseconds-1, oseconds-1, iseconds-1, tseconds-1, baseconds-1, autoreset-1
+        
         time.sleep(1)
     gather(server)
 
