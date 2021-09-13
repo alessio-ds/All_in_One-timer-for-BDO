@@ -1,13 +1,16 @@
-import time
+from time import sleep
 import requests
 import os
 import sys
 sys.stdout.write("\x1b[8;{rows};{cols}t".format(rows=6, cols=42))
+
+
 def clr():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
+
 
 def selectserver():
     try:
@@ -15,21 +18,23 @@ def selectserver():
             check = f.read()
             gather(check)
     except:
-        server=input('Which server are you on?\n1 - EU\n2 - NA\n3 - KR\n4 - SEA\n5 - RU\n\n')
-        if server=='1':
-            server='eu'
-        elif server=='2':
-            server='na'
-        elif server=='3':
-            server='kr'
-        elif server=='4':
-            server='sea'
-        elif server=='5':
-            server='ru'
+        server = input(
+            'Which server are you on?\n1 - EU\n2 - NA\n3 - KR\n4 - SEA\n5 - RU\n\n')
+        if server == '1':
+            server = 'eu'
+        elif server == '2':
+            server = 'na'
+        elif server == '3':
+            server = 'kr'
+        elif server == '4':
+            server = 'sea'
+        elif server == '5':
+            server = 'ru'
 
         with open('preferred_server.txt', mode='w') as f:
             f.write(server)
         gather(server)
+
 
 def gather(server):
     try:
@@ -47,7 +52,7 @@ def gather(server):
     seguitoda = testopagina.find('Followed by')
     trovabosstxt = testopagina[prossimo:seguitoda]
 
-    nomeboss2=''
+    nomeboss2 = ''
     occorrenze = 0
     for x in nomiboss:
         occorrenze = occorrenze + trovabosstxt.count(x)
@@ -113,14 +118,15 @@ def gather(server):
     mba = mt = int(str((trading[3]) + (trading[4])))
     sba = st = int(str((trading[6]) + (trading[7])))
 
-    dnpos = testopagina.find('Night in:')  #dnpos = day night position
-    if dnpos!=-1:
+    dnpos = testopagina.find('Night in:')  # dnpos = day night position
+    if dnpos != -1:
         orario = testopagina[dnpos + 42:dnpos + 50]
         ho = int(orario[1])
         mo = int(str((orario[3]) + (orario[4])))
         so = int(str((orario[6]) + (orario[7])))
-        gn='Night in: '
-        countdown(hb,mb,sb, ho,mo,so, hi,mi,si, ht,mt,st, hba,mba,sba, gn, nomeboss, nomeboss2, server)
+        gn = 'Night in: '
+        countdown(hb, mb, sb, ho, mo, so, hi, mi, si, ht, mt, st,
+                  hba, mba, sba, gn, nomeboss, nomeboss2, server)
         gather()
 
     else:
@@ -129,45 +135,55 @@ def gather(server):
         ho = int(orario[1])
         mo = int(str((orario[3]) + (orario[4])))
         so = int(str((orario[6]) + (orario[7])))
-        gn='Day in: '
-        countdown(hb,mb,sb, ho,mo,so, hi,mi,si, ht,mt,st, hba,mba,sba, gn, nomeboss, nomeboss2, server)
+        gn = 'Day in: '
+        countdown(hb, mb, sb, ho, mo, so, hi, mi, si, ht, mt, st,
+                  hba, mba, sba, gn, nomeboss, nomeboss2, server)
         gather()
 
-def hmsToSecs(h,m,s):
+
+def hmsToSecs(h, m, s):
     return h*3600 + m*60 + s
+
 
 def secsToHms(secs):
     hours = secs//3600
     secs -= hours*3600
     mins = secs//60
     secs -= mins*60
-    return hours,mins,secs
+    return hours, mins, secs
 
-def countdown(hb,mb,sb, ho,mo,so, hi,mi,si, ht,mt,st, hba,mba,sba, gn, nomeboss, nomeboss2, server):
-    autoreset=120
-    bseconds = hmsToSecs(hb,mb,sb)
+
+def countdown(hb, mb, sb, ho, mo, so, hi, mi, si, ht, mt, st, hba, mba, sba, gn, nomeboss, nomeboss2, server):
+    autoreset = 120
+    bseconds = hmsToSecs(hb, mb, sb)
     oseconds = hmsToSecs(ho, mo, so)
-    iseconds = hmsToSecs(hi,mi,si)
+    iseconds = hmsToSecs(hi, mi, si)
     tseconds = hmsToSecs(ht, mt, st)
     baseconds = hmsToSecs(hba, mba, sba)
-    while bseconds > 0 and oseconds > 0 and iseconds > 0 and tseconds > 0 and baseconds >0 and autoreset > 0:
+    while bseconds > 0 and oseconds > 0 and iseconds > 0 and tseconds > 0 and baseconds > 0 and autoreset > 0:
         clr()
-        if nomeboss2!='':
-            print("Next boss: ",nomeboss,'&',nomeboss2,'\t',("%02d:%02d:%02d"%secsToHms(bseconds)))
+        if nomeboss2 != '':
+            print("Next boss: ", nomeboss, '&', nomeboss2, '\t',
+                  ("%02d:%02d:%02d" % secsToHms(bseconds)))
         else:
-            print("Next boss: ", nomeboss, '\t\t', ("%02d:%02d:%02d" % secsToHms(bseconds)))
+            print("Next boss: ", nomeboss, '\t\t',
+                  ("%02d:%02d:%02d" % secsToHms(bseconds)))
 
-        if gn=='Day in: ':
-            print(gn,'  \t\t\t',("%02d:%02d:%02d" % secsToHms(oseconds)))
+        if gn == 'Day in: ':
+            print(gn, '  \t\t\t', ("%02d:%02d:%02d" % secsToHms(oseconds)))
         else:
             print(gn, '\t\t\t', ("%02d:%02d:%02d" % secsToHms(oseconds)))
-        print("Imperial reset in: \t\t",("%02d:%02d:%02d" % secsToHms(iseconds)))
-        print("Imperial trading reset in: \t",("%02d:%02d:%02d" % secsToHms(baseconds)))
-        print("Bartering reset in: \t\t",("%02d:%02d:%02d" % secsToHms(baseconds)))
+        print("Imperial reset in: \t\t",
+              ("%02d:%02d:%02d" % secsToHms(iseconds)))
+        print("Imperial trading reset in: \t",
+              ("%02d:%02d:%02d" % secsToHms(baseconds)))
+        print("Bartering reset in: \t\t",
+              ("%02d:%02d:%02d" % secsToHms(baseconds)))
 
-        bseconds, oseconds, iseconds, tseconds, baseconds, autoreset = bseconds-1, oseconds-1, iseconds-1, tseconds-1, baseconds-1, autoreset-1
-        
-        time.sleep(1)
+        bseconds, oseconds, iseconds, tseconds, baseconds, autoreset = bseconds - \
+            1, oseconds-1, iseconds-1, tseconds-1, baseconds-1, autoreset-1
+
+        sleep(1)
     gather(server)
 
 
